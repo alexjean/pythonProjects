@@ -69,8 +69,11 @@ class Form(Ui_Dialog, QWidget):
         try:
             with open(filename, 'rb') as file:
                 pl = plistlib.load(file)
+        except PermissionError as e:
+            self.showMessage('?' * 10 + f' {e} ====')
+            return False
         except Exception as e:
-            self.showMessage('?' * 20 + f' {os.path.basename(filename)} ===={e}====')
+            self.showMessage('?' * 10 + f' {os.path.basename(filename)} ===={e}====')
             return False
         return self.searchDic(pl, findstr)
 
@@ -129,16 +132,16 @@ class Form(Ui_Dialog, QWidget):
         findstr = self.lineEdit.text().strip()
         self.countFound = 0
         self.findInDirRecursive(self.baseDir, findstr)
-        self.showMessage(f'==> Search <{findstr}> done! Total {self.countFound} files found!')
-        self.showStatus(f'Total {self.countFound} files found "{findstr}"!')
+        self.showMessage(f'==> Search <{findstr}> done! Total {self.countFound} files found!\n')
+        self.showStatus(f'Total {self.countFound} files found "{findstr}"')
 
     def doFindPlist(self):
         self.baseDir = Path.home() / self.comboDir.currentText().strip()
         findstr = self.lineEdit.text().strip()
         self.countFound = 0
         self.findPlistInDir(self.baseDir, findstr)
-        self.showMessage('==> Search plist done!')
-        self.showStatus(f'Total {self.countFound} files found "{findstr}"!')
+        self.showMessage('==> Search plist done!\n')
+        self.showStatus(f'Total {self.countFound} files found "{findstr}"')
 
 
 def main():

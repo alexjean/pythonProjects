@@ -61,7 +61,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Terminal</string>
+     <string>avformat_find_stream_info</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnSearchText">
@@ -106,14 +106,14 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>590</x>
       <y>10</y>
-      <width>81</width>
+      <width>41</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>com.apple</string>
+     <string>.plist</string>
     </property>
    </widget>
    <widget class="QSplitter" name="splitter">
@@ -139,12 +139,12 @@
      </property>
      <item>
       <property name="text">
-       <string>Preferences</string>
+       <string>electron11/src</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>electron11/src</string>
+       <string>Preferences</string>
       </property>
      </item>
     </widget>
